@@ -169,14 +169,14 @@ class GetRelevantCvAPI(APIView):
             for project in obj['projects']:
                 emb_vec = get_embedding(project["short_description"])
                 score = cosine_similarity(emb_vec, jd_vec)
-                project['relevancy'] = int(round(score))
+                project['relevancy'] = int(round(score*10))
 
             print('test')
 
             for professional_experience in obj['professional_experience']:
                 emb_vec = get_embedding(professional_experience["short_description"])
                 score = cosine_similarity(emb_vec, jd_vec)
-                professional_experience['relevancy'] = int(round(score))
+                professional_experience['relevancy'] = int(round(score*10))
 
             print('test')
 

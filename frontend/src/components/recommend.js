@@ -67,8 +67,8 @@ const Recommend = ({data}) => {
             <TableBody>
               {resumes.map((resume, index) => (
                 <TableRow key={index}>
-                  <TableCell>{resume?.user?.name}</TableCell>
-                  <TableCell>{resume?.relevancyScore}</TableCell>
+                  <TableCell>{resume?.output?.user?.name}</TableCell>
+                  <TableCell>{resume?.score}</TableCell>
                   <TableCell>
                     <a
                       href={resume?.resumeLink}
@@ -81,7 +81,7 @@ const Recommend = ({data}) => {
                   <TableCell>
                     <Button
                       variant="outlined"
-                      onClick={() => handleDetails(resume)}
+                      onClick={() => handleDetails(resume?.output)}
                     >
                       Details
                     </Button>
@@ -117,7 +117,7 @@ const Recommend = ({data}) => {
         <Box marginLeft="20px">
           {" "}
           {/* Add marginLeft to create space between the components */}
-          <ResumeSection resumes={Resumes} />
+          <ResumeSection resumes={data} />
         </Box>
       </Box>
 

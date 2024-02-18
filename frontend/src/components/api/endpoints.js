@@ -33,7 +33,7 @@ export const sendResumesToBackend = async (formData) => {
       const res = await axios.post(URL, data, config);
       console.log('Response from backend API:', res.data);
       setCheck(true);
-      return res.payload;
+      return res.data.payload;
     } catch (error) {
       console.error('Error sending resumes to backend API:', error);
     }
